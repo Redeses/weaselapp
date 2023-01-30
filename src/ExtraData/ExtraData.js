@@ -1,4 +1,4 @@
-import './DataContainer.css';
+import './ExtraData.css';
 import React from 'react';
 
 
@@ -18,15 +18,20 @@ class ExtraData extends React.Component {
 
    
     
-    
+    cancel(){
+
+    }
     
 
 
-    
+    //this.props.dailydata
+    //this.props.location
+    //this.props.date
     render() {
-        if(this.props.showMore && (this.props.dailyData))
+        if(this.props.showMore)
         return (
             <div className="extraDataContainer" >
+                <button className='cancelButton' onClick={this.cancel}>Cancel</button>
                 
             </div>
         );

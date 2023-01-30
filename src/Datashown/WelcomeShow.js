@@ -32,8 +32,8 @@ class Welcome extends React.Component {
         
         return (
             <div className="welcomeContainer">
-                <h1 className='welcomeMessage'>Welcome to simple weather app</h1>
-                <h2> please choose a city</h2>
+                <h1 className='welcomeMessage'>Tervetuloa yksinkertaiselle sää sivustolle</h1>
+                <h2>Olkaa hyvä ja valitkaa kaupunki</h2>
                 <div className='weclomeButtonsContainer'>
                     <GeneralButton type="1" getData={this.props.getData} goBack={this.props.goBack}/>
                     <GeneralButton type="2" getData={this.props.getData} goBack={this.props.goBack}/>

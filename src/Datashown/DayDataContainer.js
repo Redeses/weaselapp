@@ -18,8 +18,9 @@ class DayDataContainer extends React.Component {
     }
 
     //triggered when the weather card is clicke. Shows etra data about the day on hte right
-    weatherCardClickHandler(){
-        console.log("test")
+    weatherCardClickHandler=(event)=>{
+        console.log(this.props.specDate)
+        this.props.showMoreData(event, [this.props.specDate,this.props.locationCords])
     }
     
     

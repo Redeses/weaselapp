@@ -81,6 +81,7 @@
     height: 200px;
     border: solid;
   border-color: black;
+  background-color: aliceblue;
     display: inline-block;
 }
 
