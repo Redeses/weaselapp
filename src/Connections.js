@@ -24,7 +24,7 @@ TAMPERE: 61.50°N, 23.80°E*/
     async getWeatherData(locationData){
         console.log("getting data")
         
-        var url="https://api.open-meteo.com/v1/forecast?latitude=60.17&longitude=24.95&timezone=GMT&daily=apparent_temperature_max,apparent_temperature_min,precipitation_sum,windspeed_10m_max"
+        var url="https://api.open-meteo.com/v1/forecast?latitude=60.17&longitude=24.95&timezone=GMT&daily=apparent_temperature_max,apparent_temperature_min,precipitation_sum,windspeed_10m_max,weathercode"
         const response = await fetch(url).then((response) => response.json()).catch(err=> err);
         console.log(response.daily)
         console.log(response)

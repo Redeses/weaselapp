@@ -38,10 +38,7 @@ class DataContainer extends React.Component {
             <div className="dataContainer">
                 <h1 className='location'>{this.props.location} TEst location</h1>
                 <div className='dataShow'>
-                    <DayDataContainer/>
-                    <DayDataContainer/>
-                    <DayDataContainer/>
-                    {this.state.dailyWheaterDataArray}
+                    {this.props.elements}
                 </div>
                 <div className="slidecontainer">
                     <input type="range" min="1" max="5" value={this.state.slideValue} className="slider" id="myRange" onChange={this.handleChange}/>

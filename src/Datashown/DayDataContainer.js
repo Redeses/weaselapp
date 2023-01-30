@@ -1,15 +1,12 @@
 import './DataContainer.css';
+import DataHandler from '../Datahandler';
 import React from 'react';
 
-//User information and data of their purhcases that will be shown in the main window
-class DayDataContainer extends React.Component {
-    
 
+class DayDataContainer extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            daysText:"Show 3 days",
-            dailyWheaterDataArray:new Array
         }
     }
 
@@ -22,7 +19,7 @@ class DayDataContainer extends React.Component {
 
     
     
-
+    
     
 
 
@@ -30,10 +27,11 @@ class DayDataContainer extends React.Component {
     render() {
         return (
             <div className="dayContainer">
-                <h2 className='dayDate'>Date {this.props.date}</h2>
-                <div className='dayGeneralWheather'></div>
-                <div className='dayTemperature'></div>
-                <div className='dayWind'></div>
+                <h2 className='dayDate'> {this.props.day} {this.props.date}</h2>
+                <div className='dayGeneralWheather'>{this.props.weather}</div>
+                <div className='dayTemperature'>Lämpötila: {this.props.temperature}</div>
+                <div className='dayPrecipt'>Sademäärä: {this.props.precipitation}</div>
+                <div className='dayWind'>Maksimi tuuli: {this.props.wind}</div>
             </div>
         );
       }
