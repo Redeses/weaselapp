@@ -28,7 +28,7 @@ class DayDataContainer extends React.Component {
         return (
             <div className="dayContainer">
                 <h2 className='dayDate'> {this.props.day} {this.props.date}</h2>
-                <div className='dayGeneralWheather'>{this.props.weather}</div>
+                <div className='dayGeneralWheather'>{this.props.weather[1]} {this.props.weather[2]}</div>
                 <div className='dayTemperature'>Lämpötila: {this.props.temperature}</div>
                 <div className='dayPrecipt'>Sademäärä: {this.props.precipitation}</div>
                 <div className='dayWind'>Maksimi tuuli: {this.props.wind}</div>

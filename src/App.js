@@ -6,7 +6,7 @@ import DatabaseConnector from './Connections';
 import DataHandler from './Datahandler';
 import DataContainer from './Datashown/DataContainer';
 import DayDataContainer from './Datashown/DayDataContainer';
-
+//https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2
 class App extends React.Component {
   dataArray=new Array;
   constructor(props){
