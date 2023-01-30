@@ -1,5 +1,6 @@
 .buttonContainer{
     position: relative;
+    display: inline-block;
     left: 10px;
     width: 150px;
     border-bottom-left-radius: 10%;
@@ -9,9 +10,7 @@
     padding-bottom: 10px;
     padding-top: 20px;
     
-    
 }
-
 
 .helsinkiButton{
 

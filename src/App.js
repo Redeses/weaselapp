@@ -8,7 +8,13 @@ import DataContainer from './Datashown/DataContainer';
 import DayDataContainer from './Datashown/DayDataContainer';
 import ExtraData from './ExtraData/ExtraData';
 
-//https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2
+/* TODOO
+https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2 give credit
+FIx the moving boxes
+add more comments
+Add some flair
+Other things
+*/
 class App extends React.Component {
   dataArray=new Array;
   constructor(props){
@@ -71,6 +77,9 @@ class App extends React.Component {
 
   //gets more data base on the specific date
   getMoreData=(event,param)=>{
+    if((this.state.currentTimeLocationData[0]===this.state.location)&&(this.state.currentTimeLocationData[1]===param[0])){
+
+    }else{
     this.setState({showMore:false,currentTimeLocationData:[this.state.location,param[0]]})
     var data=DatabaseConnector.getInstance().getDailyWheatherData(param[1],param[0]);
 
@@ -78,6 +87,7 @@ class App extends React.Component {
       console.log(result)
       this.setState({dailyData:result,showMore:true})
     })
+  }
   }
 
   showLessData=()=>{
@@ -94,7 +104,6 @@ class App extends React.Component {
   render() {
     
     return (<div className="App">
-      <h1 className='appName'></h1>
       <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn}/>
       <DataContainer getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
       <ExtraData currentTL={this.state.currentTimeLocationData} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>

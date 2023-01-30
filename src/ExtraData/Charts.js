@@ -26,7 +26,7 @@ class WeatherChart extends React.Component {
         labels:this.labels,
         datasets: [
           {
-            label: '(lumi/räntä/vesi-)Sademäärä',
+            label: '(lumi/räntä/vesi-)Sademäärä (mm)',
             data: [],
             backgroundColor: 'rgb(14, 135, 204)',
             stack: 'Stack 0',
@@ -38,7 +38,7 @@ class WeatherChart extends React.Component {
         labels:this.labels,
         datasets: [
           {
-            label: 'Lämpötila',
+            label: 'Lämpötila (C)',
             data: [],
             backgroundColor: 'rgb(255, 99, 132)',
             stack: 'Stack 0',
@@ -50,7 +50,7 @@ class WeatherChart extends React.Component {
         labels:this.labels,
         datasets: [
           {
-            label: 'Tuulen nopeus',
+            label: 'Tuulen nopeus (km/h)',
             data: [],
             backgroundColor: 'rgb(106, 119, 158)',
             stack: 'Stack 0',
@@ -74,6 +74,7 @@ class WeatherChart extends React.Component {
         scales: {
           x: {
             stacked: true,
+            
           },
           y: {
             stacked: true,
