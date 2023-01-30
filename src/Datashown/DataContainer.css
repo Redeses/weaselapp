@@ -1,0 +1,57 @@
+.dataContainer{
+    height: 1000px+10%;
+    width: 60%;
+    min-width: 300px;
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    display: block;
+    justify-content: center;
+}
+
+.dayContainer{
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    height: 400px;
+    width: 250px;
+    margin-left: 25px;
+    background-color: aquamarine;
+    
+    border: 5px;
+}
+
+.threeDayswitch{
+
+}
+
+.location{}
+
+.dataShow{
+    
+}
+
+.slidecontainer {
+    width: 80%; /* Width of the outside container */
+    position: relative;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* The slider itself */
+  .slider {
+    
+    width: 100%; /* Full-width */
+    height: 40px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  
+  
+
+
