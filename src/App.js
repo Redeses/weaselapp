@@ -2,7 +2,6 @@
 import './App.css';
 import React from 'react';
 import ButtonContainer from './Buttons/ButtonContainer';
-import GeneralButton from './Buttons/GeneralButton';
 import DatabaseConnector from './Connections';
 import DataHandler from './Datahandler';
 import DataContainer from './Datashown/DataContainer';
@@ -15,7 +14,7 @@ class App extends React.Component {
       this.state={
           currentData:{},
           custArray:new Array,
-          isOn:true,
+          isOn:false,
           location:""
       };
       
@@ -37,8 +36,9 @@ class App extends React.Component {
                 <div className='dayPrecipt'>{this.props.precipitation}</div>
                 <div className='dayWind'>{this.props.wind}</div> */
   getData=(event, param)=>{
-    this.setState({location:param[1]})
     var data=DatabaseConnector.getInstance().getWeatherData(param[0])
+    
+    this.setState({location:param[1],isOn:true})
     if(this.state.isOn){
       this.dataArray=new Array
     }
@@ -53,7 +53,7 @@ class App extends React.Component {
       console.log(weather)
       this.dataArray.push(<DayDataContainer key={key} showMoreData={this.getMoreData} date={fulldate} specDate={date.getDate()+"."+(parseInt(date.getMonth())+1)+"."+date.getFullYear}  weather={weather} temperature={temperature} precipitation={precipitation} wind={wind}/>);
     }
-    this.setState({custArray:this.dataArray,isOn:true});
+    this.setState({custArray:this.dataArray});
     })
   }
 
@@ -65,6 +65,7 @@ class App extends React.Component {
   //used to go back
   goBack=()=>{
     console.log("this.goBack")
+    this.setState({isOn:false});
   }
 
   
@@ -73,8 +74,8 @@ class App extends React.Component {
     
     return (<div className="App">
       <h1 className='appName'></h1>
-      <ButtonContainer getData={this.getData} goBack={this.goBack}/>
-      <DataContainer data={this.state.currentData} location={this.state.location} elements={this.state.custArray} isOn={this.state.isOn}/>
+      <ButtonContainer getData={this.getData} goBack={this.goBack} isOn={this.state.isOn}/>
+      <DataContainer getData={this.getData} data={this.state.currentData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
   </div>
     );
   }

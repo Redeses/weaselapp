@@ -1,9 +1,10 @@
 import './DataContainer.css';
 import React from 'react';
-import DayDataContainer from './DayDataContainer';
 import Welcome from './WelcomeShow';
+import WeatherContainer from './WeatherContainer';
 
-//User information and data of their purhcases that will be shown in the main window
+
+//a highher level class that will show either wheather data or welcome screen in the middle
 class DataContainer extends React.Component {
     
 
@@ -24,6 +25,10 @@ class DataContainer extends React.Component {
     componentDidUpdate(){
     }
 
+    componentWillUnmount(){
+        
+    }
+
 
     handleChange=(event)=> {
         this.setState({slideValue: event.target.value});
@@ -32,24 +37,16 @@ class DataContainer extends React.Component {
 
     
     render() {
-        if(this.props.isON){
-            <Welcome/>
-        }else{
+        if(!this.props.isOff){
+            return(
+                <div>
+                <WeatherContainer location={this.props.location} elements={this.props.elements}/>
+                </div>
+            );
+        }else if(this.props.isOff){
         return (
-            <div className="dataContainer">
-                <div className="slidecontainer">
-                    <input type="range" min="1" max="7" value={this.state.slideValue} className="slider" id="myRange" onChange={this.handleChange}/>
-                    <div className='slideValueContainer'>
-                        <h3>Näytettyjä päiviä : {this.state.slideValue}</h3>
-                    </div>
-                </div>
-                <h1 className='location'>{this.props.location}</h1>
-                <div className='dataShow'>
-                    {this.props.elements.slice(0,this.state.slideValue)}
-                    
-                </div>
-                
-                
+            <div>
+                <Welcome getData={this.props.getData}/>
             </div>
         );
       }

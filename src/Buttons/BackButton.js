@@ -23,7 +23,7 @@ class BackButton extends React.Component {
     render() {
         return (
             <div className="locationButtonContainer">
-                <button  className='backButton' >Takaisin</button>
+                <button  className='backButton' onClick={this.props.goBack}>Takaisin</button>
             </div>
         );
       }

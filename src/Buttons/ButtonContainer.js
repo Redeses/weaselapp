@@ -4,7 +4,7 @@ import DatabaseConnector from '../Connections';
 import GeneralButton from './GeneralButton';
 import BackButton from './BackButton';
 
-//Container for the 3/4 buttons that user can click to choose from where they want the weather
+//Container for the buttons that user can click to choose from where they want the weather
 class ButtonContainer extends React.Component {
     
 
@@ -16,7 +16,7 @@ class ButtonContainer extends React.Component {
     }
 
     componentDidMount(){
-        
+        console.log("mounted")
     }
 
     componentDidUpdate(){
@@ -29,6 +29,7 @@ class ButtonContainer extends React.Component {
 
     
     render() {
+        if(this.props.isOn){
         return (
             <div className="buttonContainer">
                 <h2 id='cityText'>Valitse kaupunki</h2>
@@ -40,7 +41,8 @@ class ButtonContainer extends React.Component {
                 
             </div>
         );
-      }
+        }
+    }
   }
 
 export default ButtonContainer;
