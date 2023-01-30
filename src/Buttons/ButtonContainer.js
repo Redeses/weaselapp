@@ -32,9 +32,12 @@ class ButtonContainer extends React.Component {
         return (
             <div className="buttonContainer">
                 <h2 id='cityText'>Valitse kaupunki</h2>
-                <GeneralButton type="1"/>
-                <GeneralButton type="2"/>
-                <GeneralButton type="3"/>
+                <GeneralButton type="1" getData={this.props.getData} goBack={this.props.goBack}/>
+                <GeneralButton type="2" getData={this.props.getData} goBack={this.props.goBack}/>
+                <GeneralButton type="3" getData={this.props.getData} goBack={this.props.goBack}/>
+                <GeneralButton type="4" getData={this.props.getData} goBack={this.props.goBack}/>
+                <GeneralButton type="0" getData={this.props.getData} goBack={this.props.goBack}/>
+                
             </div>
         );
       }

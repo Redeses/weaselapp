@@ -4,9 +4,11 @@ import DatabaseConnector from '../Connections';
 import HelsinkiButton from './HelsinkiButton';
 import TurkuButton from './TurkuButton';
 import TampereButton from './TampereButton';
+import LappeenrantaButton from './LappeenrantaButton';
 import BackButton from './BackButton';
 
-//general functions used by all of the buttons
+//general functions used by all of the location choosing buttons
+
 class GeneralButton extends React.Component {
     
 
@@ -37,26 +39,32 @@ class GeneralButton extends React.Component {
         if(this.props.type=="1"){
             return (
                 <div className="helsinkiButton">
-                    <HelsinkiButton/>
+                    <HelsinkiButton getData={this.props.getData} />
                 </div>
             );
         }else if(this.props.type=="2"){
             return (
                 <div className="turkuButton">
-                    <TurkuButton/>
+                    <TurkuButton getData={this.props.getData} />
                 </div>
             );
         }
         else if(this.props.type=="3"){
             return (
                 <div className="tampereButton">
-                    <TampereButton/>
+                    <TampereButton getData={this.props.getData} />
+                    </div>
+            );
+        }else if(this.props.type=="4"){
+            return (
+                <div className="tampereButton">
+                    <LappeenrantaButton getData={this.props.getData} />
                     </div>
             );
         }else{
             return (
                 <div className="backButton">
-                    <BackButton/>
+                    <BackButton goBack={this.props.goBack}/>
                     </div>
             );
         }

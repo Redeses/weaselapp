@@ -7,12 +7,10 @@ class BackButton extends React.Component {
         super(props);
         this.state={
         }
-        this.settingColor=this.settingColor.bind(this)
     }
 
     componentDidMount(){
         
-        this.settingColor()
     }
 
     componentDidUpdate(){
@@ -25,7 +23,7 @@ class BackButton extends React.Component {
     render() {
         return (
             <div className="locationButtonContainer">
-                <button  className='locationButtonContainer' >Helsinki</button>
+                <button  className='backButton' >Takaisin</button>
             </div>
         );
       }

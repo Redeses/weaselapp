@@ -6,6 +6,8 @@ class TampereButton extends React.Component {
     constructor(props){
         super(props);
         this.state={
+            coordinates:[61.50, 23.80],
+            name:"Tampere"
         }
     }
 
@@ -23,7 +25,7 @@ class TampereButton extends React.Component {
     render() {
         return (
             <div className="locationButtonContainer">
-                <button  className='locationButton' >Tampere</button>
+                <button  className='locationButton' onClick={event=>this.props.getData(event,[this.state.coordinates,this.state.name])}>Tampere</button>
             </div>
         );
       }

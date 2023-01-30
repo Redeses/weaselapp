@@ -15,8 +15,8 @@ class App extends React.Component {
       this.state={
           currentData:{},
           custArray:new Array,
-          locationChosen:0,
-          isOn:true
+          isOn:true,
+          location:""
       };
       
   }
@@ -36,12 +36,12 @@ class App extends React.Component {
                 <div className='dayTemperature'>{this.props.temperature}</div>
                 <div className='dayPrecipt'>{this.props.precipitation}</div>
                 <div className='dayWind'>{this.props.wind}</div> */
-  getData=()=>{
-    var data=DatabaseConnector.getInstance().getWeatherData()
+  getData=(event, param)=>{
+    this.setState({location:param[1]})
+    var data=DatabaseConnector.getInstance().getWeatherData(param[0])
     if(this.state.isOn){
       this.dataArray=new Array
     }
-    //data.then((result=>{this.setState({currentData:DataHandler.getInstance().parseData(result)})}))
 
     data.then((result)=>{for(const key in result.daily.time){        
       var date=new Date(result.daily.time[key])
@@ -51,7 +51,7 @@ class App extends React.Component {
       var wind=result.daily.windspeed_10m_max[key]+" "+result.daily_units.windspeed_10m_max
       var weather=DataHandler.getInstance().getweatherImageName(result.daily.weathercode[key]);
       console.log(weather)
-      this.dataArray.push(<DayDataContainer showMoreData={this.getMoreData} date={fulldate} specDate={date.getDate()+"."+(parseInt(date.getMonth())+1)+"."+date.getFullYear}  weather={weather} temperature={temperature} precipitation={precipitation} wind={wind}/>);
+      this.dataArray.push(<DayDataContainer key={key} showMoreData={this.getMoreData} date={fulldate} specDate={date.getDate()+"."+(parseInt(date.getMonth())+1)+"."+date.getFullYear}  weather={weather} temperature={temperature} precipitation={precipitation} wind={wind}/>);
     }
     this.setState({custArray:this.dataArray,isOn:true});
     })
@@ -62,15 +62,19 @@ class App extends React.Component {
     console.log("works")
   }
 
+  //used to go back
+  goBack=()=>{
+    console.log("this.goBack")
+  }
+
   
 
   render() {
     
     return (<div className="App">
       <h1 className='appName'></h1>
-      <button onClick={this.getData} >clickMe</button>
-      <ButtonContainer getData={this.getData}/>
-      <DataContainer data={this.state.currentData} elements={this.state.custArray} isOn={this.state.isOn}/>
+      <ButtonContainer getData={this.getData} goBack={this.goBack}/>
+      <DataContainer data={this.state.currentData} location={this.state.location} elements={this.state.custArray} isOn={this.state.isOn}/>
   </div>
     );
   }

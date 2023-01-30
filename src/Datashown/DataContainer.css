@@ -1,5 +1,5 @@
 .dataContainer{
-    height: 1000px+10%;
+    height: 500px;
     width: 60%;
     min-width: 300px;
     position: absolute;
@@ -29,7 +29,7 @@
 .location{}
 
 .dataShow{
-    
+    overflow-x: scroll;
 }
 
 .slidecontainer {
