@@ -15,7 +15,9 @@ class App extends React.Component {
           currentData:{},
           custArray:new Array,
           isOn:false,
-          location:""
+          showMore:false,
+          location:"",
+
       };
       
   }
@@ -60,6 +62,11 @@ class App extends React.Component {
   //gets more data base on the specific date
   getMoreData=()=>{
     console.log("works")
+    this.setState({showMore:true})
+  }
+
+  showLessData=()=>{
+
   }
 
   //used to go back

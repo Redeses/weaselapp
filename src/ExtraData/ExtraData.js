@@ -1,5 +1,4 @@
 import './DataContainer.css';
-import DataHandler from '../Datahandler';
 import React from 'react';
 
 
@@ -25,7 +24,7 @@ class ExtraData extends React.Component {
 
     
     render() {
-        if(this.props.isOn && (this.props.dailyData))
+        if(this.props.showMore && (this.props.dailyData))
         return (
             <div className="extraDataContainer" >
                 
