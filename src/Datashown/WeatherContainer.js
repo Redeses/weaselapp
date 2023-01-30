@@ -64,7 +64,7 @@ class WeatherContainer extends React.Component {
                         <h3>Näytettyjä päiviä : {this.state.slideValue}</h3>
                     </div>
                 </div>
-                <h1 className='location'>{this.props.location}</h1>
+                <h1 className='location'>Kaupungin sää: {this.props.location}</h1>
                 <button className='showThreeDays' onClick={this.handeClick}>{this.state.showButtonText}</button>
                 <div className='dataShow'>
                     {this.props.elements.slice(0,this.state.slideValue)}

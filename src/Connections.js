@@ -27,12 +27,12 @@ export default class DatabaseConnector {
 
     //get
     async getDailyWheatherData(locationData, thedate){
-        console.log(thedate)
+        
         var curl="https://api.open-meteo.com/v1/forecast?latitude="+locationData[0]+"&longitude="+locationData[1]+"&start_date="+thedate+"&end_date="+thedate+"&hourly=temperature_2m,relativehumidity_2m,windspeed_10m,precipitation"
-        console.log(curl)
+        
         const response = await fetch(curl).then((response) => response.json()).catch(err=> err);
-        console.log(response)
-        //return response
+        
+        return response
     }
 
 

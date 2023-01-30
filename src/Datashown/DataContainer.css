@@ -95,7 +95,6 @@
 
 .slidecontainer {
     width: 80%; /* Width of the outside container */
-    position: relative;
     justify-content: center;
     text-align: center;
   }

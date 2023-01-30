@@ -18,8 +18,10 @@ class App extends React.Component {
           custArray:new Array,
           dailyArray:new Array,
           isOn:false,
-          showMore:true,
+          showMore:false,
           location:"",
+          dailyData:null,
+          currentTimeLocationData:["",""]
 
       };
       
@@ -53,10 +55,14 @@ class App extends React.Component {
       var weather=DataHandler.getInstance().getweatherImageName(result.daily.weathercode[key]);
       var month1=parseInt(date.getMonth())+1
       var month=month1
+      var day=date.getDate()
+      if(day<10){
+        day=0+day.toString()
+      }
       if(month1<10){
         month=0+month1.toString()
       }
-      var specDate=date.getFullYear()+"-"+month+"-"+date.getDate()
+      var specDate=date.getFullYear()+"-"+month+"-"+day
       this.dataArray.push(<DayDataContainer key={key} locationCords={param[0]} showMoreData={this.getMoreData} date={fulldate} specDate={specDate}  weather={weather} temperature={temperature} precipitation={precipitation} wind={wind}/>);
     }
     this.setState({custArray:this.dataArray});
@@ -65,12 +71,13 @@ class App extends React.Component {
 
   //gets more data base on the specific date
   getMoreData=(event,param)=>{
+    this.setState({showMore:false,currentTimeLocationData:[this.state.location,param[0]]})
     var data=DatabaseConnector.getInstance().getDailyWheatherData(param[1],param[0]);
 
     data.then((result)=>{
-      
+      console.log(result)
+      this.setState({dailyData:result,showMore:true})
     })
-    this.setState({showMore:true})
   }
 
   showLessData=()=>{
@@ -83,24 +90,14 @@ class App extends React.Component {
     this.setState({isOn:false,showMore:false});
   }
 
-  testDataGet=()=>{
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    
-    today = yyyy + '-' + mm + '-' + dd;
-    DatabaseConnector.getInstance().getDailyWheatherData([60.02,24.01],today);
-  }
 
   render() {
     
     return (<div className="App">
       <h1 className='appName'></h1>
-      <button onClick={this.testDataGet}>Click me</button>
-      <ButtonContainer getData={this.getData} goBack={this.goBack} isOn={this.state.isOn}/>
-      <DataContainer getData={this.getData} data={this.state.currentData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
-      <ExtraData showMore={this.state.showMore}/>
+      <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn}/>
+      <DataContainer getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
+      <ExtraData currentTL={this.state.currentTimeLocationData} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
   </div>
     );
   }
