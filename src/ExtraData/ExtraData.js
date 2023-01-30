@@ -1,8 +1,9 @@
-import './Button.css';
+import './DataContainer.css';
+import DataHandler from '../Datahandler';
 import React from 'react';
-class BackButton extends React.Component {
 
 
+class ExtraData extends React.Component {
     constructor(props){
         super(props);
         this.state={
@@ -16,17 +17,21 @@ class BackButton extends React.Component {
     componentDidUpdate(){
     }
 
+   
+    
+    
     
 
 
     
     render() {
+        if(this.props.isOn && (this.props.dailyData))
         return (
-            <div className="locationButtonContainer">
-                <button  className='backButtonActual' onClick={this.props.goBack}>Takaisin</button>
+            <div className="extraDataContainer" >
+                
             </div>
         );
       }
   }
 
-export default BackButton;
+export default ExtraData;

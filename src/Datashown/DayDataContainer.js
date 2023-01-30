@@ -17,7 +17,10 @@ class DayDataContainer extends React.Component {
     componentDidUpdate(){
     }
 
-    
+    //triggered when the weather card is clicke. Shows etra data about the day on hte right
+    weatherCardClickHandler(){
+        console.log("test")
+    }
     
     
     
@@ -26,12 +29,18 @@ class DayDataContainer extends React.Component {
     
     render() {
         return (
-            <div className="dayContainer">
+            <div className="dayContainer" onClick={this.weatherCardClickHandler}>
                 <h2 className='dayDate'> {this.props.day} {this.props.date}</h2>
-                <div className='dayGeneralWheather'>{this.props.weather[1]} {this.props.weather[2]}</div>
-                <div className='dayTemperature'>Lämpötila: {this.props.temperature}</div>
-                <div className='dayPrecipt'>Sademäärä: {this.props.precipitation}</div>
-                <div className='dayWind'>Maksimi tuuli: {this.props.wind}</div>
+                <div className='dayGeneralWheather'>
+                    
+                    <div className='weatherIconContainer'>
+                        <img className='weatherIcon' src={require(`../images/${this.props.weather[2]}`)}></img> 
+                    </div>
+                    <div>{this.props.weather[1]}</div>
+                </div>
+                <div className='dayText'>Lämpötila: {this.props.temperature}</div>
+                <div className='dayText'>Sademäärä: {this.props.precipitation}</div>
+                <div className='dayText'>Maksimi tuuli: {this.props.wind}</div>
             </div>
         );
       }
