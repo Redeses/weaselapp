@@ -1,10 +1,11 @@
 import './Button.css';
 import React from 'react';
-import DatabaseConnector from '../Connections';
 import GeneralButton from './GeneralButton';
-import BackButton from './BackButton';
 
 //Container for the buttons that user can click to choose from where they want the weather
+//this is shown when the weather container is also shown
+
+//the buttons could be done with an array of the locations and a loop to make them
 class ButtonContainer extends React.Component {
     
 

@@ -7,11 +7,13 @@ import DataHandler from './Datahandler';
 import DataContainer from './Datashown/DataContainer';
 import DayDataContainer from './Datashown/DayDataContainer';
 import ExtraData from './ExtraData/ExtraData';
+import background from './images/WeatherappBG.jpg'
 
 /* TODOO
 https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2 give credit
-FIx the moving boxes
+Background image
 add more comments
+Extra scroll, make it go away
 Add some flair
 Other things
 */
@@ -44,6 +46,7 @@ class App extends React.Component {
   }
 
 
+  //gets data from meteos open API using Connections.js and then using the data to create instances of DayDataContainers
   getData=(event, param)=>{
     var data=DatabaseConnector.getInstance().getWeatherData(param[0])
     
@@ -98,10 +101,11 @@ class App extends React.Component {
     this.setState({isOn:false,showMore:false});
   }
 
+  //src={require(`./images/WeatherappBG.jpg`)}
 
   render() {
     
-    return (<div className="App">
+    return (<div className="App" style={{ backgroundImage: `url(${background})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',  }}>
       <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn}/>
       <DataContainer getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
       <div className='extraData'>

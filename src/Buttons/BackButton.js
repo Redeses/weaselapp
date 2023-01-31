@@ -1,5 +1,7 @@
 import './Button.css';
 import React from 'react';
+
+//used to bring the front screen back up
 class BackButton extends React.Component {
 
 
@@ -15,9 +17,6 @@ class BackButton extends React.Component {
 
     componentDidUpdate(){
     }
-
-    
-
 
     
     render() {

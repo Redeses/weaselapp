@@ -1,8 +1,7 @@
 import './DataContainer.css';
-import DataHandler from '../Datahandler';
 import React from 'react';
 
-
+//container for the daily weather data. Is used in the App.js to make a list for weather container
 class DayDataContainer extends React.Component {
     constructor(props){
         super(props);
@@ -34,9 +33,9 @@ class DayDataContainer extends React.Component {
                 <div className='dayGeneralWheather'>
                     
                     <div className='weatherIconContainer'>
-                        <img className='weatherIcon' src={require(`../images/${this.props.weather[2]}`)}></img> 
+                        <img className='weatherIcon' alt={'image of'+this.props.weather[1]} src={require(`../images/${this.props.weather[2]}`)}></img> 
                     </div>
-                    <div>{this.props.weather[1]}</div>
+                    <div>Sää: {this.props.weather[1]}</div>
                 </div>
                 <div className='dayText'>Lämpötila: {this.props.temperature}</div>
                 <div className='dayText'>Sademäärä: {this.props.precipitation}</div>

@@ -1,15 +1,5 @@
 
 
-.extraDataContainer{
-    border-style: solid;
-    border-color: black;
-    border-width: 5px;
-    
-    height: 100%;
-    width: 100%;
-}
-
-
 .cancelButton{
     float: right;
     margin-right: 10px;
@@ -17,7 +7,23 @@
     height: 60px;
     width: 60px;
     background-color: rgb(244, 108, 108);
+    border-radius: 10%;
 }
+
+.charts{
+
+}
+
+.extraDataContainer{
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+}
+
+
 
 .extraInfoHeader{
     font-size: 20px;
