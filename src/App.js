@@ -105,7 +105,7 @@ class App extends React.Component {
 
   render() {
     
-    return (<div className="App" style={{ backgroundImage: `url(${background})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',  }}>
+    return (<div className="App" style={{ backgroundImage: `url(${background})`  }}>
       <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn}/>
       <DataContainer getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
       <div className='extraData'>

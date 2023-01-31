@@ -153,14 +153,14 @@
     .dataContainer{
         height: 80%;
         width: 45%;
+        min-height: 400px;
+        max-height:700px;
         min-width: 270px;
         position: relative;
         right: 15px;
         left: 0px;
         bottom: 200px;
         float: right;
-        scrollbar-width: thin;
-        overflow-x:none ;
         border-bottom-left-radius: 5%;
         border-bottom-right-radius: 5%;
         background-color: rgba(0, 223, 239, 0.689);
@@ -198,11 +198,13 @@
         position: relative;
         text-align: center;
         width: 100%;
+        min-height: 750px;
         height: 100%;
     }
 
     .weclomeButtonsContainer button{
         left: 35%; 
+        height: 110px;
         display: inline-block;
     }
 

@@ -40,16 +40,13 @@ label{
 
 @media only screen and (max-width: 700px) {
     .extraDataContainer{
-      
+        pointer-events: all;
       position: absolute;
       display: inline-block;
-      overflow-x: auto;
-      scrollbar-width:thin;
+      width: 100%;
     }
 
-    .charts{
-        min-width: 400px;
-    }
+    
 
     .cancelButton{
         
