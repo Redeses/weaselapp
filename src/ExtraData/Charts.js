@@ -150,6 +150,9 @@ class WeatherChart extends React.Component {
     constructor(props){
         super(props);
         this.state={
+          data1:this.data1,
+          data2:this.data1,
+          data3:this.data1,
         }
     }
 
@@ -157,9 +160,26 @@ class WeatherChart extends React.Component {
         this.data1.datasets[0].data=this.props.dailyData.hourly.precipitation
         this.data2.datasets[0].data=this.props.dailyData.hourly.temperature_2m
         this.data3.datasets[0].data=this.props.dailyData.hourly.windspeed_10m
+        this.setState({data1:this.data1,data2:this.data2,data3:this.data3})
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(nextProps){
+      var bool1=(this.props.dailyData.hourly!==nextProps.dailyData.hourly)
+      
+      if(bool1){
+        console.log("test")
+        this.updateData()
+      }else{
+      }  
+    }
+
+    
+
+    updateData=()=>{
+      this.data1.datasets[0].data=this.props.dailyData.hourly.precipitation
+      this.data2.datasets[0].data=this.props.dailyData.hourly.temperature_2m
+      this.data3.datasets[0].data=this.props.dailyData.hourly.windspeed_10m
+      this.setState({data1:this.data1,data2:this.data2,data3:this.data3})
     }
 
 
@@ -167,11 +187,12 @@ class WeatherChart extends React.Component {
 
   
     render() {
+      
         return (
             <div className="" >
-                <Bar className='chartBar' options={this.options} data={this.data1} />
-                <Bar className='chartBar' options={this.options2} data={this.data2} />
-                <Bar className='chartBar' options={this.options3} data={this.data3} />
+                <Bar className='chartBar' options={this.options} data={this.state.data1} />
+                <Bar className='chartBar' options={this.options2} data={this.state.data2} />
+                <Bar className='chartBar' options={this.options3} data={this.state.data3} />
             </div>
         );
       }

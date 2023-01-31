@@ -1,9 +1,7 @@
 .App{
-  background-color:"rgba(100, 100, 0, .5)";
+  background-blend-mode: lighten;
   overflow: hidden;
-  scrollbar-width: none;
-  height: 100%;
-  width: 100%;
+  display:flow-root;
 }
 
 
