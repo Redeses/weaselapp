@@ -1,6 +1,7 @@
 import './ExtraData.css';
 import React from 'react';
 import WeatherChart from './Charts';
+import MiddleChart from './middlewareChart';
 
 
 class ExtraData extends React.Component {
@@ -14,12 +15,12 @@ class ExtraData extends React.Component {
     }
 
     componentDidMount(){
+
     }
 
     componentDidUpdate(){
     }
 
-   
     
     cancel=(event)=>{
         this.props.showLessData()
@@ -38,7 +39,7 @@ class ExtraData extends React.Component {
                 <h2 className='extraInfoHeader'>{this.props.currentTL[0]}</h2>  
                 <h2 className='extraInfoHeader'>{this.props.currentTL[1]}</h2>       
                 <div className='charts'>
-                    <WeatherChart dailyData={this.props.dailyData}/>
+                    <MiddleChart dailyData={this.props.dailyData} weatherBool={this.props.weatherBool}/>
                 </div>
             </div>
         );

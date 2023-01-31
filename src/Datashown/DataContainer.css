@@ -1,10 +1,10 @@
 .dataContainer{
-    height: 90%;
-    width: 60%;
+    height: 92%;
+    width: 63%;
     min-width: 300px;
     position: absolute;
     left: 15%;
-    top: 5%;
+    top: 3%;
     display: inline-block;
     overflow-y: auto;
     border-bottom-left-radius: 5%;
@@ -116,6 +116,13 @@
 
 .weclomeButtonsContainer{
 
+}
+
+.weclomeButtonsContainer button{
+    left: 35%; 
+    height: 110px;
+    width: 200px;
+    display: inline-block;
 }
 .welcomeMessage{
     display: inline-block;

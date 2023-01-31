@@ -8,6 +8,8 @@ import DataContainer from './Datashown/DataContainer';
 import DayDataContainer from './Datashown/DayDataContainer';
 import ExtraData from './ExtraData/ExtraData';
 import background from './images/WeatherappBG.jpg'
+import WeatherChart from './ExtraData/Charts';
+import MiddleChart from './ExtraData/middlewareChart';
 
 /* TODOO
 https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2 give credit
@@ -27,9 +29,11 @@ class App extends React.Component {
           dailyArray:[],
           isOn:false,
           showMore:false,
+          weatherBool:false,
           location:"",
           dailyData:null,
-          currentTimeLocationData:["",""]
+          currentTimeLocationData:["",""],
+          proxyArray:[]
 
       };
       
@@ -83,11 +87,13 @@ class App extends React.Component {
     if((this.state.currentTimeLocationData[0]===this.state.location)&&(this.state.currentTimeLocationData[1]===param[0])&&(this.state.showMore)){
 
     }else{
-    this.setState({showMore:false,currentTimeLocationData:[this.state.location,param[0]]})
+    var proxy=[]
+    this.setState({weatherBool:false,currentTimeLocationData:[this.state.location,param[0]]})
     var data=DatabaseConnector.getInstance().getDailyWheatherData(param[1],param[0]);
 
     data.then((result)=>{
-      this.setState({dailyData:result,showMore:true})
+      this.setState({weatherBool:false})
+      this.setState({dailyData:result,showMore:true,weatherBool:true})
     })
   }
   }
@@ -109,7 +115,7 @@ class App extends React.Component {
       <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn}/>
       <DataContainer getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
       <div className='extraData'>
-        <ExtraData currentTL={this.state.currentTimeLocationData} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
+        <ExtraData currentTL={this.state.currentTimeLocationData} weatherBool={this.state.weatherBool} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
       </div>
   </div>
     );

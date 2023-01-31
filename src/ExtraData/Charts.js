@@ -1,5 +1,6 @@
 import React from 'react';
 import './ExtraData.css';
+import DataHandler from '../Datahandler';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -149,53 +150,61 @@ class WeatherChart extends React.Component {
 
     constructor(props){
         super(props);
+        this.chartReference = React.createRef();
         this.state={
           data1:this.data1,
           data2:this.data1,
           data3:this.data1,
         }
-    }
+       
+      }
+    
 
     componentDidMount(){
-        this.data1.datasets[0].data=this.props.dailyData.hourly.precipitation
-        this.data2.datasets[0].data=this.props.dailyData.hourly.temperature_2m
-        this.data3.datasets[0].data=this.props.dailyData.hourly.windspeed_10m
-        this.setState({data1:this.data1,data2:this.data2,data3:this.data3})
+      console.log("ttea")
     }
 
     componentDidUpdate(nextProps){
-      var bool1=(this.props.dailyData.hourly!==nextProps.dailyData.hourly)
       
-      if(bool1){
-        console.log("test")
-        this.updateData()
-      }else{
-      }  
     }
+
+    /*data1:(this.data1.datasets[0].data=this.props.dailyData.hourly.precipitation),
+            data2:(this.data2.datasets[0].data=this.props.dailyData.hourly.temperature_2m),
+            data3:(this.data3.datasets[0].data=this.props.dailyData.hourly.windspeed_10m) */
+/*
+    static getDerivedStateFromProps(props,state) {
+      var data1bool=(JSON.stringify(state.data1.datasets[0].data)!==JSON.stringify(props.dailyData.hourly.precipitation))
+      var data2bool=(JSON.stringify(state.data2.datasets[0].data)!==JSON.stringify(props.dailyData.hourly.temperature_2m))
+      var data3bool=(JSON.stringify(state.data3.datasets[0].data)!==JSON.stringify(props.dailyData.hourly.windspeed_10m)) 
+      
+      if(data1bool||data2bool||data3bool){
+          //Change in props
+          console.log("success")
+          return{
+            data1:DataHandler.getInstance().getData1(props.dailyData.hourly.precipitation),
+            data2:DataHandler.getInstance().getData2(props.dailyData.hourly.temperature_2m),
+            data3:DataHandler.getInstance().getData3(props.dailyData.hourly.windspeed_10m),
+          };
+      }
+      return null;
+    }*/
 
     
+    
 
-    updateData=()=>{
-      this.data1.datasets[0].data=this.props.dailyData.hourly.precipitation
-      this.data2.datasets[0].data=this.props.dailyData.hourly.temperature_2m
-      this.data3.datasets[0].data=this.props.dailyData.hourly.windspeed_10m
-      this.setState({data1:this.data1,data2:this.data2,data3:this.data3})
-    }
-
-
+  
 
 
   
-    render() {
-      
+    render() {   
         return (
             <div className="" >
-                <Bar className='chartBar' options={this.options} data={this.state.data1} />
-                <Bar className='chartBar' options={this.options2} data={this.state.data2} />
-                <Bar className='chartBar' options={this.options3} data={this.state.data3} />
+                <Bar className='chartBar' options={this.options} data={DataHandler.getInstance().getData1(this.props.dailyData.hourly.precipitation)} />
+                <Bar className='chartBar' options={this.options2} data={DataHandler.getInstance().getData2(this.props.dailyData.hourly.temperature_2m)} />
+                <Bar className='chartBar' options={this.options3} data={DataHandler.getInstance().getData3(this.props.dailyData.hourly.windspeed_10m)} />
             </div>
         );
-      }
+    }
   }
 
 export default WeatherChart;

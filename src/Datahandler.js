@@ -188,12 +188,18 @@ export default class DataHandler {
     getOptions2(){}
     getOptions3(){}
 
-    getData1(){
+    getData1(data){
+        this.data1.datasets[0].data=data
+        
+        
         return this.data1
     }
-    getData2(){
+    getData2(data){
+        this.data2.datasets[0].data=data
         return this.data2
     }
-    getData3(){return this.data3}
+    getData3(data){
+        this.data3.datasets[0].data=data
+        return this.data3}
 
 }
