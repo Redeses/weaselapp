@@ -2,7 +2,7 @@ import React from 'react';
 import './ExtraData.css';
 import WeatherChart from './Charts';
 
-
+//used pure for the if statement(for now)
 class MiddleChart extends React.Component {
     
 

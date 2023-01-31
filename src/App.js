@@ -13,11 +13,7 @@ import MiddleChart from './ExtraData/middlewareChart';
 
 /* TODOO
 https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2 give credit
-Background image
-add more comments
-Extra scroll, make it go away
-Add some flair
-Other things
+
 */
 class App extends React.Component {
   dataArray=[];
