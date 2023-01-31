@@ -13,7 +13,8 @@
 
 .buttonContainer{
     position: relative;
-    display: inline-block;
+    display: block;
+    margin-right: 10px;
     left: 10px;
     width: 150px;
     border-bottom-left-radius: 10%;
@@ -64,3 +65,29 @@
     font-size: medium;
     text-align: center;
 }
+
+@media only screen and (max-width: 700px) {
+    .locationButton{
+        height: 0px;
+        display:none;
+        
+    }
+    .locationButtonContainer{
+        display: block;
+    }
+    .backButtonActual{
+        display:inline-block;
+        width: 100px;
+        height: 70px;
+        border-radius: 10%;
+        border-color: rgb(240, 255, 249);
+        background-color: rgb(163, 255, 155);
+        margin-top: 0%;
+    }
+    .buttonContainer{
+        margin: 0;
+    }
+    #cityText{
+        margin-bottom: 0%;
+    }
+  }

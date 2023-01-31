@@ -5,7 +5,7 @@
     position: absolute;
     left: 15%;
     top: 5%;
-    display: block;
+    display: inline-block;
     overflow-y: auto;
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
@@ -54,7 +54,7 @@
 .location{
     font-size: 50px;
     width: 50%;
-    display: inline;
+    display: inline-block;
     margin-left: 20px;
     margin-bottom: 20px;
 }
@@ -84,8 +84,11 @@
     float: right;
     position: relative;
     font-size: large;
-    right: 150px;
+    display: block;
+    margin-right: 100px;
+    top: 50px;
     margin-top:10px;
+    margin-bottom: 30px;
     width: 150px;
     height: 70px;
     border-radius: 10%;
@@ -120,17 +123,14 @@
     margin-bottom: 20px;
     left: 40%;
     width: 40%;
-    height: 150px;
+    height: 10%+150px;
     border-radius: 20%;
     border-bottom-left-radius: 15%;
     border-bottom-right-radius: 15%;
     background-color: rgba(0, 223, 239, 0.689);
 }
 
-.weclomeButtonsContainer button{
-    width: 300px;
-    
-}
+
 
 .weatherIcon{
     width: 200px;
@@ -147,3 +147,111 @@
   background-color: aliceblue;
     display: inline-block;
 }
+
+
+@media only screen and (max-width: 700px) {
+    .dataContainer{
+        height: 80%;
+        width: 45%;
+        min-width: 270px;
+        position: relative;
+        right: 15px;
+        left: 0px;
+        bottom: 200px;
+        float: right;
+        scrollbar-width: thin;
+        overflow-x:none ;
+        border-bottom-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+        background-color: rgba(0, 223, 239, 0.689);
+    }
+
+ 
+    .dayContainer{
+        position: relative;
+        display: inline-block;
+        align-items: center;
+        height: 380px;
+        width: 80%;
+        margin-left: 25px;
+        margin-top: 25px;
+        background-color: aquamarine;
+        border-radius: 10%;
+        border-style: solid;
+        border-width: 3px;
+        
+        border-color: rgb(0, 100, 100);
+    }
+
+    .dayText{
+        font-size: small;
+    }
+
+    .dataShow{
+        
+        justify-content: center;
+    }
+
+
+
+    .welcomeContainer{
+        position: relative;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .weclomeButtonsContainer button{
+        left: 35%; 
+        display: inline-block;
+    }
+
+    .weclomeButtonsContainer{
+        height: 400px;
+    }
+    .welcomeMessage h1{
+        display: inline-block;
+        margin-top: 20px;
+        left: 40%;
+        width: 100%;
+        font-size: 22px;
+        text-align: center;
+    }
+    .welcomeMessage h2{
+        display: inline-block;
+        margin-top: 20px;
+        left: 40%;
+        width: 100%;
+        font-size: 18px;
+        text-align: center;
+    }
+    .slidecontainer{
+        margin-right: 0;
+        display: inline;
+    }
+    .slidecontainer h4{
+        margin-bottom: 0;
+    }
+
+    .location{
+        font-size: large;
+        text-align: center;
+        width: 100%;
+        margin: 0%;
+    }
+    .location h1{
+        margin: 0%;
+    }
+    .showThreeDays{
+        position: relative;
+        font-size: large;
+        display: inline-block;
+        margin-bottom: 30px;
+        width: 100%;
+        left: 0%;
+        top: 5%;
+        height: 70px;
+        float: none;
+    
+    }
+  }
