@@ -1,0 +1,55 @@
+
+
+.cancelButton{
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 60px;
+    width: 60px;
+    background-color: rgb(244, 108, 108);
+    border-radius: 10%;
+}
+
+.charts{
+    height: 100%;
+}
+
+.extraDataContainer{
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    background-color: white;
+    display: inline-block;
+    height: 100%;
+    min-height: 700px;
+    width: 100%;
+}
+
+
+
+.extraInfoHeader{
+    font-size: 20px;
+    text-align: left;
+    margin:0;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+label{
+    font-size: 24px;
+}
+
+@media only screen and (max-width: 700px) {
+    .extraDataContainer{
+        pointer-events: all;
+      position: absolute;
+      display: inline-block;
+      width: 100%;
+    }
+
+    
+
+    .cancelButton{
+        
+    }
+  }

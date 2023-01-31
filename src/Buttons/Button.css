@@ -1,5 +1,20 @@
+
+.backButtonActual{
+    display:inline-block;
+    width: 60px;
+    height: 50px;
+    border-radius: 10%;
+    border-color: rgb(240, 255, 249);
+    background-color: rgb(163, 255, 155);
+}
+
+
+
+
 .buttonContainer{
     position: relative;
+    display: block;
+    margin-right: 10px;
     left: 10px;
     width: 150px;
     border-bottom-left-radius: 10%;
@@ -24,14 +39,17 @@
 
 }
 
-.backButton{
-    
-}
 
 .locationButtonContainer{
     display:inline-block;
     padding-top: 10px;
     padding-left: 25px;
+}
+
+.locationButtonContainer :hover{
+    background-color: rgb(5, 80, 80);
+    transition: 0.2s;
+    cursor: pointer;
 }
 
 .locationButton{
@@ -47,3 +65,31 @@
     font-size: medium;
     text-align: center;
 }
+
+@media only screen and (max-width: 700px) {
+    .locationButton{
+        height: 0px;
+        display:none;
+        
+    }
+    .locationButtonContainer{
+        display: block;
+    }
+
+    
+    .backButtonActual{
+        display:inline-block;
+        width: 100px;
+        height: 70px;
+        border-radius: 10%;
+        border-color: rgb(240, 255, 249);
+        background-color: rgb(163, 255, 155);
+        margin-top: 0%;
+    }
+    .buttonContainer{
+        margin: 0;
+    }
+    #cityText{
+        margin-bottom: 0%;
+    }
+  }

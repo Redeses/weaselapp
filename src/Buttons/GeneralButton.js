@@ -1,6 +1,5 @@
 import './Button.css';
 import React from 'react';
-import DatabaseConnector from '../Connections';
 import HelsinkiButton from './HelsinkiButton';
 import TurkuButton from './TurkuButton';
 import TampereButton from './TampereButton';
@@ -36,26 +35,26 @@ class GeneralButton extends React.Component {
 
     
     render() {
-        if(this.props.type=="1"){
+        if(this.props.type==="1"){
             return (
                 <div className="helsinkiButton">
                     <HelsinkiButton getData={this.props.getData} />
                 </div>
             );
-        }else if(this.props.type=="2"){
+        }else if(this.props.type==="2"){
             return (
                 <div className="turkuButton">
                     <TurkuButton getData={this.props.getData} />
                 </div>
             );
         }
-        else if(this.props.type=="3"){
+        else if(this.props.type==="3"){
             return (
                 <div className="tampereButton">
                     <TampereButton getData={this.props.getData} />
                     </div>
             );
-        }else if(this.props.type=="4"){
+        }else if(this.props.type==="4"){
             return (
                 <div className="tampereButton">
                     <LappeenrantaButton getData={this.props.getData} />

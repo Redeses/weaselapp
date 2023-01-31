@@ -39,13 +39,13 @@ class DataContainer extends React.Component {
     render() {
         if(!this.props.isOff){
             return(
-                <div>
-                <WeatherContainer location={this.props.location} elements={this.props.elements}/>
+                <div className='mainContainer'>
+                    <WeatherContainer location={this.props.location} elements={this.props.elements}/>
                 </div>
             );
         }else if(this.props.isOff){
         return (
-            <div>
+            <div className='mainContainer'>
                 <Welcome getData={this.props.getData}/>
             </div>
         );

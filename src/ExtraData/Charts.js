@@ -1,41 +1,28 @@
+import React from 'react';
+import './ExtraData.css';
+import DataHandler from '../Datahandler';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 
-//holds current data shown or selected
-export default class DataHandler {
-
-    static myInstance = null;
-    
-
-   array=[
-    [0, "Selkeä taivas", "CS.png"],
-    [1,"Pääosin selkeää","MC.png"],
-    [2, "Puolipilvistä", "PC.png"],
-    [3, "Pilvinen","overC.png"],
-    [45, "Sumua","fog.png"],
-    [48, "Huurretta","drFog.png"],
-    [51, "Kevyt tihkusade" ,"DrizL.png"],
-    [53, "Kohtalainen tihkusade","DrizM.png"], 
-    [55, "Tiheä tihkusade","DrizDens.png"],
-    [56, "Kevyt jäätävä tihkusade","freDrizL.png"],
-    [57, "Tiheä jäätävä tihkusade","freDrizDens.png"],
-    [61, "Kevyt sade","rainS.png"],
-    [63, "Kohtalainen sade","rainM.png"],
-    [65, "Tiheä sade","rainH.png"],
-    [66, "Kevyt jäätävä sade","frezRainL.png"],
-    [67, "Tiheä jäätävä sade","frezRainH.png"],
-    [71, "Kevyt lumisade","snowS.png"],
-    [73, "Kohtalainen lumisade","snowM.png"],
-    [75, "Tiheä lumisade","snowH.png"],
-    [77, "Lumijyväsade","snowGrain.png"],
-    [80, "lieviä sadekuuroja","rainShowerS.png"],
-    [81, "Kohtalaisia sadekuuroja","rainShowerM.png"],
-    [82, "Rajuja sadekuuroja","rainShowerV.png"],
-    [85, "Lieviä lumisateita","snowShowerS.png"],
-    [86, "Rajuja lumisateita","snowShowerH.png"],
-    [95, "Kevyit tai kohtalainen ukkosmyrsky","ThunderS_SM.png"],
-    [96, "Ukkosmyrsky ja kevyesti rakeita","thunderS_slightH.png"],
-    [99, "Ukkosmyrsky ja tiheästi rakeita","thunderS_heavyH.png"]];
-
+class WeatherChart extends React.Component {
     labels = ['00:00', '01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00',];
     data1 = {
         labels:this.labels,
@@ -159,47 +146,67 @@ export default class DataHandler {
         },
       };
 
-    /**
-     * @returns {DataHandler}
-     */
-    static getInstance() {
-        if (DataHandler.myInstance == null) {
-            DataHandler.myInstance = new DataHandler();
-            
-        }
+      
 
-        return this.myInstance;
+    constructor(props){
+        super(props);
+        this.chartReference = React.createRef();
+        this.state={
+          data1:this.data1,
+          data2:this.data1,
+          data3:this.data1,
+        }
+       
+      }
+    
+
+    componentDidMount(){
+      console.log("ttea")
     }
 
+    componentDidUpdate(nextProps){
+      
+    }
+
+    /*data1:(this.data1.datasets[0].data=this.props.dailyData.hourly.precipitation),
+            data2:(this.data2.datasets[0].data=this.props.dailyData.hourly.temperature_2m),
+            data3:(this.data3.datasets[0].data=this.props.dailyData.hourly.windspeed_10m) */
+/*
+    static getDerivedStateFromProps(props,state) {
+      var data1bool=(JSON.stringify(state.data1.datasets[0].data)!==JSON.stringify(props.dailyData.hourly.precipitation))
+      var data2bool=(JSON.stringify(state.data2.datasets[0].data)!==JSON.stringify(props.dailyData.hourly.temperature_2m))
+      var data3bool=(JSON.stringify(state.data3.datasets[0].data)!==JSON.stringify(props.dailyData.hourly.windspeed_10m)) 
+      
+      if(data1bool||data2bool||data3bool){
+          //Change in props
+          console.log("success")
+          return{
+            data1:DataHandler.getInstance().getData1(props.dailyData.hourly.precipitation),
+            data2:DataHandler.getInstance().getData2(props.dailyData.hourly.temperature_2m),
+            data3:DataHandler.getInstance().getData3(props.dailyData.hourly.windspeed_10m),
+          };
+      }
+      return null;
+    }*/
+
+    
     
 
   
-    //returns the name of picture and the description
-    getweatherImageName(code){
-        for(var i=0;i<this.array.length;i++){
-            if(this.array[i][0]===code){
-                return this.array[i]
-            }           
-        }
-        return ""
-    }
 
-    getOptions1(){}
-    getOptions2(){}
-    getOptions3(){}
 
-    getData1(data){
-        this.data1.datasets[0].data=data
-        
-        
-        return this.data1
+  
+    render() {   
+        return (
+            <div className="" >
+                <Bar className='chartBar' options={this.options} data={DataHandler.getInstance().getData1(this.props.dailyData.hourly.precipitation)} />
+                <Bar className='chartBar' options={this.options2} data={DataHandler.getInstance().getData2(this.props.dailyData.hourly.temperature_2m)} />
+                <Bar className='chartBar' options={this.options3} data={DataHandler.getInstance().getData3(this.props.dailyData.hourly.windspeed_10m)} />
+            </div>
+        );
     }
-    getData2(data){
-        this.data2.datasets[0].data=data
-        return this.data2
-    }
-    getData3(data){
-        this.data3.datasets[0].data=data
-        return this.data3}
+  }
 
-}
+export default WeatherChart;
+
+

@@ -19,11 +19,7 @@ class HelsinkiButton extends React.Component {
     componentDidUpdate(){
     }
 
-    //onClick={this.props.getData([this.state.coordinates,this.state.name])}
-    handleClick=(event,param)=>{
-        console.log("param")
-    }
-
+    
     
     render() {
         return (
