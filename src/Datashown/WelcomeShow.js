@@ -1,7 +1,6 @@
 import './DataContainer.css';
 import React from 'react';
 import GeneralButton from '../Buttons/GeneralButton';
-import ButtonContainer from '../Buttons/ButtonContainer';
 
 class Welcome extends React.Component {
     
@@ -9,7 +8,7 @@ class Welcome extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            dailyWheaterDataArray:new Array,
+            dailyWheaterDataArray:[],
             slideValue:1,
             valueCheck:1
         }

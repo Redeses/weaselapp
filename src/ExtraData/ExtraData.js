@@ -36,7 +36,9 @@ class ExtraData extends React.Component {
         return (
             <div className="extraDataContainer" >
                 <button className='cancelButton' onClick={this.cancel}>Cancel</button>
-                <h2 className='extraInfoHeader'>Lisätietoja: {this.props.currentTL[0]} : {this.props.currentTL[1]}</h2>       
+                <h2 className='extraInfoHeader'>Lisätietoja</h2>
+                <h2 className='extraInfoHeader'>{this.props.currentTL[0]}</h2>  
+                <h2 className='extraInfoHeader'>{this.props.currentTL[1]}</h2>       
                 <div className='charts'>
                     <WeatherChart dailyData={this.props.dailyData}/>
                 </div>

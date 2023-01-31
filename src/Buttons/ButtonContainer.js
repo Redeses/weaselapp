@@ -16,7 +16,6 @@ class ButtonContainer extends React.Component {
     }
 
     componentDidMount(){
-        console.log("mounted")
     }
 
     componentDidUpdate(){

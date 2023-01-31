@@ -1,4 +1,5 @@
 import React from 'react';
+import './ExtraData.css';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -53,10 +54,13 @@ class WeatherChart extends React.Component {
             label: 'Tuulen nopeus (km/h)',
             data: [],
             backgroundColor: 'rgb(106, 119, 158)',
+            fontsize:"40px",
             stack: 'Stack 0',
           },
         ],
       };
+
+    
 
       
 
@@ -78,9 +82,71 @@ class WeatherChart extends React.Component {
           },
           y: {
             stacked: true,
+            ticks: {
+              callback: function(value, index, ticks) {
+                  return value+'mm';
+              }
+            }
           },
         },
       };
+
+      options2 = {
+        plugins: {
+          title: {
+            display: true
+          },
+        },
+        responsive: true,
+        interaction: {
+          mode: 'index' ,
+          intersect: false,
+        },
+        scales: {
+          x: {
+            stacked: true,
+            
+          },
+          y: {
+            stacked: true,
+            ticks: {
+              callback: function(value, index, ticks) {
+                  return value+'°C';
+              }
+            }
+          },
+        },
+      };
+
+      options3 = {
+        plugins: {
+          title: {
+            display: true
+          },
+        },
+        responsive: true,
+        interaction: {
+          mode: 'index' ,
+          intersect: false,
+        },
+        scales: {
+          x: {
+            stacked: true,
+            
+          },
+          y: {
+            stacked: true,
+            ticks: {
+              callback: function(value, index, ticks) {
+                  return value+'km/h';
+              }
+            }
+          },
+        },
+      };
+
+      
+
     constructor(props){
         super(props);
         this.state={
@@ -103,9 +169,9 @@ class WeatherChart extends React.Component {
     render() {
         return (
             <div className="" >
-                <Bar options={this.options} data={this.data1} />
-                <Bar options={this.options} data={this.data2} />
-                <Bar options={this.options} data={this.data3} />
+                <Bar className='chartBar' options={this.options} data={this.data1} />
+                <Bar className='chartBar' options={this.options2} data={this.data2} />
+                <Bar className='chartBar' options={this.options3} data={this.data3} />
             </div>
         );
       }

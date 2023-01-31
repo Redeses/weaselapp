@@ -16,13 +16,13 @@ Add some flair
 Other things
 */
 class App extends React.Component {
-  dataArray=new Array;
+  dataArray=[];
   constructor(props){
       super();
       this.state={
           currentData:{},
-          custArray:new Array,
-          dailyArray:new Array,
+          custArray:[],
+          dailyArray:[],
           isOn:false,
           showMore:false,
           location:"",
@@ -49,7 +49,7 @@ class App extends React.Component {
     
     this.setState({location:param[1],isOn:true})
     if(this.state.isOn){
-      this.dataArray=new Array
+      this.dataArray=[]
     }
 
     data.then((result)=>{for(const key in result.daily.time){        
@@ -77,14 +77,13 @@ class App extends React.Component {
 
   //gets more data base on the specific date
   getMoreData=(event,param)=>{
-    if((this.state.currentTimeLocationData[0]===this.state.location)&&(this.state.currentTimeLocationData[1]===param[0])){
+    if((this.state.currentTimeLocationData[0]===this.state.location)&&(this.state.currentTimeLocationData[1]===param[0])&&(this.state.showMore)){
 
     }else{
     this.setState({showMore:false,currentTimeLocationData:[this.state.location,param[0]]})
     var data=DatabaseConnector.getInstance().getDailyWheatherData(param[1],param[0]);
 
     data.then((result)=>{
-      console.log(result)
       this.setState({dailyData:result,showMore:true})
     })
   }
@@ -96,7 +95,6 @@ class App extends React.Component {
 
   //used to go back
   goBack=()=>{
-    console.log("this.goBack")
     this.setState({isOn:false,showMore:false});
   }
 
@@ -106,7 +104,9 @@ class App extends React.Component {
     return (<div className="App">
       <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn}/>
       <DataContainer getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
-      <ExtraData currentTL={this.state.currentTimeLocationData} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
+      <div className='extraData'>
+        <ExtraData currentTL={this.state.currentTimeLocationData} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
+      </div>
   </div>
     );
   }
