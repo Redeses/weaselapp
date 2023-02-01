@@ -107,11 +107,13 @@ class App extends React.Component {
 
   render() {
     
-    return (<div className="App" style={{ backgroundImage: `url(${background})`  }}>
+    return (<div className="App" >
+      <div className='background' style={{ backgroundImage: `url(${background})`  }}>
       <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn}/>
       <DataContainer getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
       <div className='extraData'>
         <ExtraData currentTL={this.state.currentTimeLocationData} weatherBool={this.state.weatherBool} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
+      </div>
       </div>
   </div>
     );
