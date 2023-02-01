@@ -1,7 +1,10 @@
 .App{
   background-blend-mode: lighten;
   overflow: hidden;
-  display:flow-root;
+}
+
+.background{
+  min-height:1500px;
 }
 
 
@@ -17,14 +20,14 @@
 }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
   .App{
     background-color:"rgba(100, 100, 0, .5)";
     overflow: hidden;
     scrollbar-width: none;
     height: 100%;
     width: 100%;
-    max-width: 700px;
+    max-width: 750px;
     
   }
   .extraData{
@@ -34,9 +37,25 @@
     width: 80%;
     top:5%;
     left: 10%;
+    max-width: 400px;
     float: left;
     position: absolute;
   }
+}
+
+@media only screen and (max-width: 420px) {
+  .extraData{
+    float: left;
+    height: 100%;
+    width: 80%;
+    left: 0;
+    min-width: 150px;
+    max-width: 400px;
+    margin: 0;
+  }
+  
+  
+
 }
 
 

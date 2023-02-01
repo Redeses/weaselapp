@@ -10,6 +10,8 @@
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
     background-color: rgba(0, 223, 239, 0.689);
+    
+    overflow-x: hidden;
 }
 
 .dayContainer{
@@ -155,8 +157,87 @@
     display: inline-block;
 }
 
+@media only screen and (max-width: 1600px) {
+    .dataContainer{
+        width: 55%;
+    }
 
-@media only screen and (max-width: 700px) {
+    .dayContainer{
+       
+        height: 380px;
+        width: 250px;
+        margin-left: 25px;
+        margin-top: 25px;
+        background-color: aquamarine;
+        border-radius: 10%;
+        border-style: solid;
+        border-width: 3px;
+        
+        border-color: rgb(0, 100, 100);
+    }
+    
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .dataContainer{
+        width: 50%;
+        height: 95%;
+    }
+
+    .dayContainer{
+       top:0;
+        height: 380px;
+        width: 200px;
+        margin-left: 25px;
+        margin-top: 25px;
+        background-color: aquamarine;
+        border-radius: 10%;
+        border-style: solid;
+        border-width: 3px;
+        
+        border-color: rgb(0, 100, 100);
+    }
+
+    .location{
+        font-size: 24px;
+        margin-bottom: 0px;
+        margin-top: 0;
+    }
+
+    .showThreeDays{
+        float: left;
+        position: relative;
+        font-size: large;
+        margin-right: 2000px;
+        margin-left: 20px;
+        margin-top:0px;
+        margin-bottom: 0px;
+        top:0px;
+        width: 250px;
+        height: 70px;
+        border-radius: 10%;
+        border-color: rgb(30, 255, 165);
+        background-color: rgb(20, 239, 0);
+    
+    }
+
+    .dayText{
+        font-size: 14px;
+    }
+
+    .weatherIconContainer{
+        width: 150px;
+        margin-bottom: 5px;
+    }
+
+    .weatherIcon{
+        width: 150px;
+    }
+    
+  }
+
+
+@media only screen and (max-width: 750px) {
     .dataContainer{
         height: 80%;
         width: 45%;
@@ -179,7 +260,7 @@
         display: inline-block;
         align-items: center;
         height: 380px;
-        width: 80%;
+        width: 70%;
         margin-left: 25px;
         margin-top: 25px;
         background-color: aquamarine;
@@ -256,7 +337,7 @@
         font-size: large;
         display: inline-block;
         margin-bottom: 30px;
-        width: 100%;
+        width: 200px;
         left: 0%;
         top: 5%;
         height: 70px;
@@ -264,3 +345,82 @@
     
     }
   }
+
+
+  @media only screen and (max-width: 500px) {
+    .dataContainer{
+        height: 40%;
+        width: 200px;
+        min-height: 200px;
+        max-height:600px;
+        min-width: 270px;
+        position: relative;
+        bottom: 0px;
+        float:none;
+        border-bottom-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+        background-color: rgba(0, 223, 239, 0.689);
+        scrollbar-width: thin;
+    }
+
+    
+    .dayContainer{
+        height: 250px;
+        width: 60%;
+        margin-left: 25px;
+        margin-top: 25px;
+        background-color: aquamarine;
+        border-radius: 10%;
+        border-style: solid;
+        border-width: 3px;
+        
+        border-color: rgb(0, 100, 100);
+    }
+
+    .showThreeDays{
+        position: relative;
+        font-size: 12px;
+        float: left;
+        margin-bottom: 10px;
+        width: 200px;
+        left: 0%;
+        top: 5%;
+        height: 80px;
+    
+    }
+
+    .welcomeContainer{
+        width: 100%;
+        min-height: 550px;
+        height: 100%;
+    }
+
+    .weclomeButtonsContainer{
+        height: 200px;
+    }
+    .weclomeButtonsContainer button{
+        left: 35%; 
+        height: 80px;
+        display: inline-block;
+    }
+
+    .welcomeMessage h1{
+        font-size: 18px;
+        text-align: center;
+    }
+    .welcomeMessage h2{
+        display: inline-block;
+        font-size: 14px;
+    }
+    .weatherIconContainer{
+        width: 50px;
+        height: 50%;
+        margin-bottom: 5px;
+    }
+
+    .weatherIcon{
+        width: 50px;
+    }
+ 
+  }
+  

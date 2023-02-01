@@ -39,17 +39,30 @@ label{
     font-size: 24px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1200px) {
+    .extraDataContainer{
+        pointer-events: all;
+      position: absolute;
+      display: inline-block;
+      min-width: 350px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
     .extraDataContainer{
         pointer-events: all;
       position: absolute;
       display: inline-block;
       width: 100%;
+      max-width: 500px;
     }
 
     
 
-    .cancelButton{
-        
-    }
   }
+
+  @media only screen and (max-width: 420px) {
+    .extraDataContainer{
+        display: none;
+        pointer-events: none;
+    }}
