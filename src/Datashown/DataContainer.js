@@ -46,7 +46,7 @@ class DataContainer extends React.Component {
         }else if(this.props.isOff){
         return (
             <div className='mainContainer'>
-                <Welcome getData={this.props.getData}/>
+                <Welcome getData={this.props.getData} showLessData={this.props.showLessData}/>
             </div>
         );
       }

@@ -35,5 +35,9 @@ export default class DatabaseConnector {
         return response
     }
 
+    async getCityData(){
+        
+    }
+
 
 }

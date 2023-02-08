@@ -45,13 +45,7 @@
 
 @media only screen and (max-width: 420px) {
   .extraData{
-    float: left;
-    height: 100%;
-    width: 80%;
-    left: 0;
-    min-width: 150px;
-    max-width: 400px;
-    margin: 0;
+    display: none;
   }
   
   
