@@ -23,7 +23,17 @@
     background-color: rgb(255, 154, 30);
     padding-bottom: 10px;
     padding-top: 20px;
+    max-height: 80%;
+    overflow-y: auto;
     
+}
+
+.welcomeButtonsContainer{
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    width: 50%;
+    max-width: 1000px;
 }
 
 

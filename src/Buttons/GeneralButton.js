@@ -15,9 +15,6 @@ class GeneralButton extends React.Component {
     }
 
     componentDidMount(){
-    
-        console.log(this.props)
-        console.log("GB")
     }
 
     componentDidUpdate(){

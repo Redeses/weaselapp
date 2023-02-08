@@ -35,8 +35,11 @@ export default class DatabaseConnector {
         return response
     }
 
+    //addDB connections here
+
+    //could be used to get city data based on names
     async getCityData(){
-        
+
     }
 
 

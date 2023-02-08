@@ -12,6 +12,7 @@ import WeatherChart from './ExtraData/Charts';
 import MiddleChart from './ExtraData/middlewareChart';
 import AddCityButton from './AddCities/AddCityButton';
 import AddCityPopUp from './AddCities/AddCityPopUp';
+import ButtonMiddleware from './Buttons/ButtonMiddleware';
 
 /* TODOO
 https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2 give credit
@@ -31,7 +32,8 @@ class App extends React.Component {
           location:"",
           dailyData:null,
           currentTimeLocationData:["",""],
-          proxyArray:[]
+          proxyArray:[],
+          buttonArray:DataHandler.getInstance().getButtonArray(),
 
       };
       
@@ -41,7 +43,15 @@ class App extends React.Component {
 
   componentDidMount=()=>{
 
-}
+  }
+
+  addToButtons=(e)=>{
+    var proxyArray=[]
+    console.log("twice?")
+    proxyArray=this.state.buttonArray
+    proxyArray.push(e)
+    this.setState({buttonArray:proxyArray})
+  }
 
   setCurrentData=(e)=>{
     this.setState({currentData:e.currentData})
@@ -111,12 +121,11 @@ class App extends React.Component {
     
     return (<div className="App" >
       <div className='background' style={{ backgroundImage: `url(${background})`  }}>
-      <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn} neutral={true}/>
-      <DataContainer neutral={true} getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
+      <ButtonMiddleware addToButtons={this.addToButtons} buttonArray={this.state.buttonArray} showMore={this.state.showMore} getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn} neutral={true}/>
+      <DataContainer addToButtons={this.addToButtons} buttonArray={this.state.buttonArray} neutral={true} getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
       <div className='extraData'>
         <ExtraData currentTL={this.state.currentTimeLocationData} weatherBool={this.state.weatherBool} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
       </div>
-      <AddCityPopUp/>
       </div>
   </div>
     );
