@@ -11,6 +11,7 @@ class GeneralButton extends React.Component {
     constructor(props){
         super(props);
         this.state={
+            prevProp:""
         }
     }
 
@@ -18,6 +19,7 @@ class GeneralButton extends React.Component {
     }
 
     componentDidUpdate(){
+        
     }
 
     
@@ -28,6 +30,7 @@ class GeneralButton extends React.Component {
         if(this.props.type===1){
             return(
                 <div className="locationButtonContainer">
+                    
                     <button  className='locationButton' onClick={event=>this.props.getData(event,[this.props.location,this.props.name])}>{this.props.name}</button>
                 </div>
             )

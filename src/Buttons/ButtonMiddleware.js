@@ -52,7 +52,7 @@ class ButtonMiddleware extends React.Component {
     
 
     makeButtonArray=()=>{
-        console.log("making button container")
+        //console.log("making button container")
         var proxyArray=[]
         for(var key in this.props.buttonArray){
             proxyArray.push(<GeneralButton type={1} key={key} showLessData={this.props.showLessData} goBack={this.props.goBack} getData={this.props.getData} location={this.props.buttonArray[key][0]} name={this.props.buttonArray[key][1]}/>)

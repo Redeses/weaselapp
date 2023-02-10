@@ -13,6 +13,7 @@ import MiddleChart from './ExtraData/middlewareChart';
 import AddCityButton from './AddCities/AddCityButton';
 import AddCityPopUp from './AddCities/AddCityPopUp';
 import ButtonMiddleware from './Buttons/ButtonMiddleware';
+import CookieHandler from './CookieHandler';
 
 /* TODOO
 https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2 give credit
@@ -33,7 +34,7 @@ class App extends React.Component {
           dailyData:null,
           currentTimeLocationData:["",""],
           proxyArray:[],
-          buttonArray:DataHandler.getInstance().getButtonArray(),
+          buttonArray:CookieHandler.getInstance().checkCookie(),
 
       };
       
@@ -42,7 +43,7 @@ class App extends React.Component {
   
 
   componentDidMount=()=>{
-
+    console.log(CookieHandler.getInstance().checkCookie())
   }
 
   addToButtons=(e)=>{
@@ -51,6 +52,7 @@ class App extends React.Component {
     proxyArray=this.state.buttonArray
     proxyArray.push(e)
     this.setState({buttonArray:proxyArray})
+    CookieHandler.getInstance().saveArrayAsCookie(proxyArray,1)
   }
 
   setCurrentData=(e)=>{
@@ -115,6 +117,10 @@ class App extends React.Component {
     this.setState({isOn:false,showMore:false});
   }
 
+  deleteCookie=()=>{
+    CookieHandler.getInstance().deleteCookie()
+  }
+
   //src={require(`./images/WeatherappBG.jpg`)}
 
   render() {
@@ -126,6 +132,7 @@ class App extends React.Component {
       <div className='extraData'>
         <ExtraData currentTL={this.state.currentTimeLocationData} weatherBool={this.state.weatherBool} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
       </div>
+      <button onClick={this.deleteCookie}>delete cookie</button>
       </div>
   </div>
     );
