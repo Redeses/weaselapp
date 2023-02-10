@@ -97,14 +97,18 @@ class AddCityPopUp extends React.Component {
             <div className="popUpContainer">
                 <div className='popUp'>
                 <form className='newUserForm'  id='form1' >
+                <div className='formPart'>
                 <label>Nimi</label> 
                     <input type="text"  key={"name"} value={this.state.nimi} onChange={this.handleChange_Name} />
+                </div>
+                <div className='formPart'>
                 <label>leveysaste</label>
                     <input type="text"  key={"Latitude"} value={this.state.leveys} maxLength={5}  onChange={this.coordinateValidation1}/>
-                     
+                </div> 
+                <div className='formPart'> 
                 <label>pituusaste</label>
                     <input type="text"  key={"Longitude"} value={this.state.pituus} maxLength={5}  onChange={this.coordinateValidation2}/>
-                        
+                </div>
                     <input type="submit" value="Lisää kaupunki" id="submitButton" onClick={this.addButton}/>
 
                 </form>

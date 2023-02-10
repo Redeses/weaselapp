@@ -56,10 +56,12 @@ class ButtonContainer extends React.Component {
         for(var key in this.props.buttonArray){
             proxyArray.push(<GeneralButton type={1} key={key} showLessData={this.props.showLessData} goBack={this.props.goBack} getData={this.props.getData} location={this.props.buttonArray[key][0]} name={this.props.buttonArray[key][1]}/>)
         }
+        var text="center center"
         if(this.props.neutral){
             proxyArray.push(<GeneralButton type={"0"} showLessData={this.props.showLessData} getData={this.props.getData} goBack={this.props.goBack} location={this.props.buttonArray[key][0]} name={this.props.buttonArray[key][1]}/>)
+            text="right center"
         }
-        proxyArray.push(<AddCityButton buttons={this.props.buttonArray} addToButtons={this.remakeArray}/>)
+        proxyArray.push(<AddCityButton buttons={this.props.buttonArray} addToButtons={this.remakeArray} neutral={this.props.neutral}/>)
         this.setState({buttonArray1:proxyArray})
     }
 
