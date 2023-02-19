@@ -1,6 +1,8 @@
 import './DataContainer.css';
 import React from 'react';
 import GeneralButton from '../Buttons/GeneralButton';
+import ButtonContainer from '../Buttons/ButtonContainer';
+import ButtonMiddleware from '../Buttons/ButtonMiddleware';
 
 class Welcome extends React.Component {
     
@@ -25,6 +27,7 @@ class Welcome extends React.Component {
     handleChange=(event)=> {
       }
 
+    testing=(e)=>{}
 
     
     render() {
@@ -36,10 +39,7 @@ class Welcome extends React.Component {
                 <h2>Olkaa hyvä ja valitkaa kaupunki</h2>
                 </div>
                 <div className='weclomeButtonsContainer'>
-                    <GeneralButton type="1" getData={this.props.getData} goBack={this.props.goBack}/>
-                    <GeneralButton type="2" getData={this.props.getData} goBack={this.props.goBack}/>
-                    <GeneralButton type="3" getData={this.props.getData} goBack={this.props.goBack}/>
-                    <GeneralButton type="4" getData={this.props.getData} goBack={this.props.goBack}/>
+                    <ButtonMiddleware addToButtons={this.props.addToButtons} buttonArray={this.props.buttonArray} showMore={false}  getData={this.props.getData} showLessData={this.props.showLessData} isOn={true} neutral={false}/>
                 </div>
             </div>
         );

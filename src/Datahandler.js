@@ -36,6 +36,13 @@ export default class DataHandler {
     [96, "Ukkosmyrsky ja kevyesti rakeita","thunderS_slightH.png"],
     [99, "Ukkosmyrsky ja tiheästi rakeita","thunderS_heavyH.png"]];
 
+    normalButtonArra=[
+      [["60.17", "24.95"],"Helsinki"],
+      [["61.06", "28.19"],"Lappeenranta"],
+      [["61.50", "23.80"],"Tampere"],
+      [["60.45", "22.28"],"Turku"],
+    ]
+
     labels = ['00:00', '01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00',];
     data1 = {
         labels:this.labels,
@@ -187,6 +194,10 @@ export default class DataHandler {
     getOptions1(){}
     getOptions2(){}
     getOptions3(){}
+
+    getButtonArray(){
+      return this.normalButtonArra
+    }
 
     getData1(data){
         this.data1.datasets[0].data=data
