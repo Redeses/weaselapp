@@ -1,6 +1,7 @@
 import DataHandler from "./Datahandler";
 
-//holds current data shown or selected
+//holds temp buttonarray
+//TODO the storage could be done with redux
 export default class CookieHandler {
 
     static myInstance = null;
@@ -17,15 +18,6 @@ export default class CookieHandler {
     
         return this.myInstance;    
     }
-
-        testCookie(){
-            /*this.checkCookie()
-            this.saveArrayAsCookie(["test","adaw"],1)
-            console.log("Checking cookie: "+this.getArrayFromCookies("test"))
-            this.checkCookie();
-            document.cookie="lokaatiot= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-            this.checkCookie()*/
-        }
 
 
         saveArrayAsCookie( locationArray, days) {
@@ -99,6 +91,8 @@ export default class CookieHandler {
         deleteCookie(){
             document.cookie="lokaatiot= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
         }
+
+
 
 
     

@@ -8,7 +8,10 @@
     background-color: rgb(163, 255, 155);
 }
 
-
+.sideMenuAddC{
+    position: relative;
+    left: 20%;
+}
 
 
 .buttonContainer{
@@ -25,6 +28,8 @@
     padding-top: 20px;
     max-height: 80%;
     overflow-y: auto;
+    
+    overflow-x: hidden;
     
 }
 

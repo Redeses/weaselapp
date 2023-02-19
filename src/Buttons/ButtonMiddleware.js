@@ -59,8 +59,12 @@ class ButtonMiddleware extends React.Component {
         }
         if(this.props.neutral){
             proxyArray.push(<GeneralButton type={"0"} showLessData={this.props.showLessData} getData={this.props.getData} goBack={this.props.goBack} location={this.props.buttonArray[key][0]} name={this.props.buttonArray[key][1]}/>)
+            proxyArray.push(<div className='sideMenuAddC'><AddCityButton buttons={this.props.buttonArray} addToButtons={this.remakeArray}/></div>)
+        
+        }else{
+            proxyArray.push(<div className=''><AddCityButton buttons={this.props.buttonArray} addToButtons={this.remakeArray}/></div>)
+        
         }
-        proxyArray.push(<AddCityButton buttons={this.props.buttonArray} addToButtons={this.remakeArray}/>)
         //this.setState({buttonArray1:proxyArray})
         return proxyArray
     }

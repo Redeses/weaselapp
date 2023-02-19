@@ -26,7 +26,7 @@ class AddCityButton extends React.Component {
        
         return (
             <div className="addCityButtonContainer">
-                <Popup className='addCityButton' trigger={<button>Lisää kaupunki</button>} position="center center">
+                <Popup  trigger={<button className='addCityButton'>Lisää kaupunki</button>} position="center center">
                     {close =>(<AddCityPopUp closed={close} buttons={this.props.buttons} addToButtons={this.props.addToButtons} neutral={this.props.neutra}/>)}
                     
                 </Popup>
