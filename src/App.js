@@ -10,6 +10,10 @@ import ExtraData from './ExtraData/ExtraData';
 import background from './images/WeatherappBG.jpg'
 import WeatherChart from './ExtraData/Charts';
 import MiddleChart from './ExtraData/middlewareChart';
+import AddCityButton from './AddCities/AddCityButton';
+import AddCityPopUp from './AddCities/AddCityPopUp';
+import ButtonMiddleware from './Buttons/ButtonMiddleware';
+import CookieHandler from './CookieHandler';
 
 /* TODOO
 https://www.iconfinder.com/weather-icons?category=weather&price=free&license=gte__2 give credit
@@ -29,7 +33,8 @@ class App extends React.Component {
           location:"",
           dailyData:null,
           currentTimeLocationData:["",""],
-          proxyArray:[]
+          proxyArray:[],
+          buttonArray:CookieHandler.getInstance().checkCookie(),
 
       };
       
@@ -38,8 +43,17 @@ class App extends React.Component {
   
 
   componentDidMount=()=>{
+    console.log(CookieHandler.getInstance().checkCookie())
+  }
 
-}
+  addToButtons=(e)=>{
+    var proxyArray=[]
+    console.log("twice?")
+    proxyArray=this.state.buttonArray
+    proxyArray.push(e)
+    this.setState({buttonArray:proxyArray})
+    CookieHandler.getInstance().saveArrayAsCookie(proxyArray,1)
+  }
 
   setCurrentData=(e)=>{
     this.setState({currentData:e.currentData})
@@ -49,7 +63,7 @@ class App extends React.Component {
   //gets data from meteos open API using Connections.js and then using the data to create instances of DayDataContainers
   getData=(event, param)=>{
     var data=DatabaseConnector.getInstance().getWeatherData(param[0])
-    
+    console.log("click")
     this.setState({location:param[1],isOn:true})
     if(this.state.isOn){
       this.dataArray=[]
@@ -103,17 +117,22 @@ class App extends React.Component {
     this.setState({isOn:false,showMore:false});
   }
 
+  deleteCookie=()=>{
+    CookieHandler.getInstance().deleteCookie()
+  }
+
   //src={require(`./images/WeatherappBG.jpg`)}
 
   render() {
     
     return (<div className="App" >
       <div className='background' style={{ backgroundImage: `url(${background})`  }}>
-      <ButtonContainer getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn}/>
-      <DataContainer getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
+      <ButtonMiddleware addToButtons={this.addToButtons} buttonArray={this.state.buttonArray} showMore={this.state.showMore} getData={this.getData} showLessData={this.showLessData} goBack={this.goBack} isOn={this.state.isOn} neutral={true}/>
+      <DataContainer addToButtons={this.addToButtons} buttonArray={this.state.buttonArray} neutral={true} getData={this.getData} data={this.state.currentData} showLessData={this.showLessData} location={this.state.location} elements={this.state.custArray} isOff={!this.state.isOn}/>
       <div className='extraData'>
         <ExtraData currentTL={this.state.currentTimeLocationData} weatherBool={this.state.weatherBool} showMore={this.state.showMore} location={this.state.location} dailyData={this.state.dailyData} showLessData={this.showLessData}/>
       </div>
+      <button onClick={this.deleteCookie}>delete cookie</button>
       </div>
   </div>
     );

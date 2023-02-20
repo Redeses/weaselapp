@@ -8,7 +8,10 @@
     background-color: rgb(163, 255, 155);
 }
 
-
+.sideMenuAddC{
+    position: relative;
+    left: 20%;
+}
 
 
 .buttonContainer{
@@ -23,21 +26,22 @@
     background-color: rgb(255, 154, 30);
     padding-bottom: 10px;
     padding-top: 20px;
+    max-height: 80%;
+    overflow-y: auto;
+    
+    overflow-x: hidden;
     
 }
 
-.helsinkiButton{
-
+.welcomeButtonsContainer{
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    width: 50%;
+    max-width: 1000px;
 }
 
-.tampereButton{
 
-}
-
-.turkuButton{
-
-
-}
 
 
 .locationButtonContainer{

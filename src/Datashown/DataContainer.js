@@ -35,6 +35,10 @@ class DataContainer extends React.Component {
       }
 
 
+      addToButtons2=(e)=>{
+        console.log(e)
+    }
+
     
     render() {
         if(!this.props.isOff){
@@ -46,7 +50,7 @@ class DataContainer extends React.Component {
         }else if(this.props.isOff){
         return (
             <div className='mainContainer'>
-                <Welcome getData={this.props.getData}/>
+                <Welcome addToButtons={this.props.addToButtons} buttonArray={this.props.buttonArray} getData={this.props.getData} showLessData={this.props.showLessData}/>
             </div>
         );
       }
